@@ -59,4 +59,10 @@ class DelimiterTest {
         assertThatThrownBy(() -> new Delimiter("a\nd"));
         assertThatThrownBy(() -> new Delimiter("z\n"));
     }
+
+    @DisplayName("구분자는 최대 길이를 초과할 수 없다.")
+    @Test
+    void exceedMaxLength_throwsException() {
+        assertThatThrownBy(() -> new Delimiter("abcdefghijkalmfoisdfkljaszxgsfasfwe"));
+    }
 }
