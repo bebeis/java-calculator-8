@@ -1,8 +1,8 @@
-package calculator.io;
+package calculator.view;
 
 import calculator.domain.PositiveNumber;
 
-public class ConsoleOutputHandler {
+public class ConsoleOutputView {
 
     public void printInitMessage() {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
