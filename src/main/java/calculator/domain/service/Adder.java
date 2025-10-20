@@ -1,4 +1,4 @@
-package calculator.domain.service.adder;
+package calculator.domain.service;
 
 import calculator.domain.operand.Operand;
 
