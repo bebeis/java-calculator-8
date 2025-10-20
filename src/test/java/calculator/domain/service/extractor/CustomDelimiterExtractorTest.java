@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CustomDelimiterExtractorTest {
 
@@ -49,6 +50,26 @@ class CustomDelimiterExtractorTest {
 
         // then
         assertThat(delimiterOpt.isPresent()).isFalse();
+    }
+
+    @DisplayName("suffix가 존재하지 않는 경우 예외를 발생시킨다.")
+    @Test
+    void noSuffix_throwsException() {
+        CustomDelimiterExtractor extractor = new CustomDelimiterExtractor();
+        String expr = "//a1,2,3";
+
+        assertThatThrownBy(() -> extractor.extractDelimitersFrom(expr))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("suffix가 잘못된 경우 예외를 발생시킨다.")
+    @Test
+    void illegalSuffix_throwsException() {
+        CustomDelimiterExtractor extractor = new CustomDelimiterExtractor();
+        String expr = "//a\1,2,3";
+
+        assertThatThrownBy(() -> extractor.extractDelimitersFrom(expr))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
