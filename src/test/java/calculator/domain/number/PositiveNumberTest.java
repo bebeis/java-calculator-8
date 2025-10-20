@@ -1,6 +1,5 @@
-package calculator.domain;
+package calculator.domain.number;
 
-import calculator.domain.number.PositiveNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
