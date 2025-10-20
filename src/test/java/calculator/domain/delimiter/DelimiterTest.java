@@ -3,8 +3,7 @@ package calculator.domain.delimiter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatNoException;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class DelimiterTest {
 
@@ -64,5 +63,12 @@ class DelimiterTest {
     @Test
     void exceedMaxLength_throwsException() {
         assertThatThrownBy(() -> new Delimiter("abcdefghijkalmfoisdfkljaszxgsfasfwe"));
+    }
+
+    @DisplayName("정규식 특수문자는 이스케이프처리한다")
+    @Test
+    void specialCharacter_escape() {
+        assertThat(new Delimiter(".").toRegexToken()).isEqualTo("\\Q.\\E");
+        assertThat(new Delimiter("]").toRegexToken()).isEqualTo("\\Q]\\E");
     }
 }
