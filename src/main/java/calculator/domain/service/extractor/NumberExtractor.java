@@ -1,6 +1,6 @@
 package calculator.domain.service.extractor;
 
-import calculator.domain.number.PositiveNumber;
+import calculator.domain.operand.Operand;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,7 @@ import static calculator.domain.delimiter.CustomDelimiterPattern.CUSTOM_DELIMITE
 
 public class NumberExtractor {
 
-    public List<PositiveNumber> extractNumbers(String delimitedNumberExpr, String regex) {
+    public List<Operand> extractNumbers(String delimitedNumberExpr, String regex) {
 
         String numberSection = stripCustomDelimiterHeader(delimitedNumberExpr);
         String[] tokens = numberSection.split(regex);
@@ -31,11 +31,11 @@ public class NumberExtractor {
         return delimitedNumberExpr;
     }
 
-    private PositiveNumber toPositiveNumber(String token) {
+    private Operand toPositiveNumber(String token) {
         if (!Pattern.matches("\\d+(\\.\\d+)?", token)) {
             throw new IllegalArgumentException("유효하지 않은 숫자 형식입니다: " + token);
         }
 
-        return new PositiveNumber(Double.parseDouble(token));
+        return new Operand(Double.parseDouble(token));
     }
 }

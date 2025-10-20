@@ -2,7 +2,7 @@ package calculator.domain.service;
 
 import calculator.domain.delimiter.Delimiter;
 import calculator.domain.delimiter.DelimiterGroup;
-import calculator.domain.number.PositiveNumber;
+import calculator.domain.operand.Operand;
 import calculator.domain.service.extractor.CustomDelimiterExtractor;
 import calculator.domain.service.extractor.NumberExtractor;
 
@@ -14,7 +14,7 @@ public class DelimitedNumberService {
     private final CustomDelimiterExtractor delimiterExtractor = new CustomDelimiterExtractor();
     private final NumberExtractor numberExtractor = new NumberExtractor();
 
-    public List<PositiveNumber> extractNumbersFrom(String delimitedNumberExpr) {
+    public List<Operand> extractNumbersFrom(String delimitedNumberExpr) {
         Optional<Delimiter> customDelimiter = delimiterExtractor.extractDelimitersFrom(delimitedNumberExpr);
 
         DelimiterGroup delimiterGroup = customDelimiter

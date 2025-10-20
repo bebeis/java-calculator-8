@@ -1,6 +1,6 @@
 package calculator.domain.service.adder;
 
-import calculator.domain.number.PositiveNumber;
+import calculator.domain.operand.Operand;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,13 +16,13 @@ class AdderTest {
     void addMultipleIntegerNumbers() {
         // given
         Adder adder = new Adder();
-        List<PositiveNumber> positiveNumbers = List.of(new PositiveNumber(1), new PositiveNumber(2), new PositiveNumber(3));
+        List<Operand> operands = List.of(new Operand(1), new Operand(2), new Operand(3));
 
         // when
-        Optional<PositiveNumber> sumOpt = adder.sum(positiveNumbers);
+        Optional<Operand> sumOpt = adder.sum(operands);
 
         // then
-        assertThat(sumOpt.get()).isEqualTo(new PositiveNumber(6));
+        assertThat(sumOpt.get()).isEqualTo(new Operand(6));
     }
 
     @DisplayName("여러 개의 소수를 더할 수 있다.")
@@ -30,13 +30,13 @@ class AdderTest {
     void addMultipleDoubleNumbers() {
         // given
         Adder adder = new Adder();
-        List<PositiveNumber> positiveNumbers = List.of(new PositiveNumber(1.1), new PositiveNumber(2.2), new PositiveNumber(3.3));
+        List<Operand> operands = List.of(new Operand(1.1), new Operand(2.2), new Operand(3.3));
 
         // when
-        Optional<PositiveNumber> sumOpt = adder.sum(positiveNumbers);
+        Optional<Operand> sumOpt = adder.sum(operands);
 
         // then
-        assertThat(sumOpt.get()).isEqualTo(new PositiveNumber(6.6));
+        assertThat(sumOpt.get()).isEqualTo(new Operand(6.6));
     }
 
     @DisplayName("여러 개의 정수, 소수의 복합 연산을 수행할 수 있다.")
@@ -44,13 +44,13 @@ class AdderTest {
     void addMultipleDoubleAndIntegerNumbers() {
         // given
         Adder adder = new Adder();
-        List<PositiveNumber> positiveNumbers = List.of(new PositiveNumber(1), new PositiveNumber(1.2), new PositiveNumber(2));
+        List<Operand> operands = List.of(new Operand(1), new Operand(1.2), new Operand(2));
 
         // when
-        Optional<PositiveNumber> sumOpt = adder.sum(positiveNumbers);
+        Optional<Operand> sumOpt = adder.sum(operands);
 
         // then
-        assertThat(sumOpt.get()).isEqualTo(new PositiveNumber(4.2));
+        assertThat(sumOpt.get()).isEqualTo(new Operand(4.2));
     }
 
 }
