@@ -22,7 +22,7 @@ public class Delimiter {
 
     private void validateNotEmpty(final String value) {
         if (value.isEmpty()) {
-            throw new IllegalArgumentException("구분자는 공백일 수 없습니다");
+            throw new IllegalArgumentException("구분자는 비어있을 수 없습니다");
         }
     }
 
