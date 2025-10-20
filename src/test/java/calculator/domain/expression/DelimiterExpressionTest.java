@@ -1,6 +1,6 @@
-package calculator.domain.delimiter;
+package calculator.domain.expression;
 
-import calculator.domain.expression.DelimiterExpression;
+import calculator.domain.delimiter.Delimiter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

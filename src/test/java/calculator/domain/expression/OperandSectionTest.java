@@ -1,6 +1,6 @@
-package calculator.domain.operand;
+package calculator.domain.expression;
 
-import calculator.domain.expression.OperandSection;
+import calculator.domain.operand.Operand;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -355,6 +355,6 @@ class OperandSectionTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    
+
 }
 
