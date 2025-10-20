@@ -1,7 +1,7 @@
 package calculator.service;
 
 import calculator.domain.operand.Operand;
-import calculator.domain.service.DelimitedNumberService;
+import calculator.domain.service.DelimitedOperandService;
 import calculator.domain.service.adder.Adder;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class CalculatorService {
 
-    private final DelimitedNumberService resolver = new DelimitedNumberService();
+    private final DelimitedOperandService resolver = new DelimitedOperandService();
     private final Adder adder = new Adder();
 
     public String calculate(final String calculationRequest) {

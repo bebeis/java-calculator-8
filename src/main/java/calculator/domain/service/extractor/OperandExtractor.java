@@ -9,17 +9,17 @@ import java.util.regex.Pattern;
 
 import static calculator.domain.delimiter.CustomDelimiterPattern.CUSTOM_DELIMITER;
 
-public class NumberExtractor {
+public class OperandExtractor {
 
-    public List<Operand> extractNumbers(String delimitedNumberExpr, String regex) {
+    public List<Operand> extractOperands(String delimitedNumberExpr, String regex) {
 
-        String numberSection = stripCustomDelimiterHeader(delimitedNumberExpr);
-        String[] tokens = numberSection.split(regex);
+        String operandSection = stripCustomDelimiterHeader(delimitedNumberExpr);
+        String[] tokens = operandSection.split(regex);
 
         return Arrays.stream(tokens)
                 .map(String::trim)
                 .filter(token -> !token.isEmpty())
-                .map(this::toPositiveNumber)
+                .map(this::toOperand)
                 .toList();
     }
 
@@ -31,7 +31,7 @@ public class NumberExtractor {
         return delimitedNumberExpr;
     }
 
-    private Operand toPositiveNumber(String token) {
+    private Operand toOperand(String token) {
         if (!Pattern.matches("\\d+(\\.\\d+)?", token)) {
             throw new IllegalArgumentException("유효하지 않은 숫자 형식입니다: " + token);
         }
