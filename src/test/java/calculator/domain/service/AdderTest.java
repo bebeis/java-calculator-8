@@ -1,7 +1,6 @@
-package calculator.domain.service.adder;
+package calculator.domain.service;
 
 import calculator.domain.operand.Operand;
-import calculator.domain.service.Adder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
